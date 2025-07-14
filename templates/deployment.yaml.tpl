@@ -19,6 +19,9 @@ spec:
           persistentVolumeClaim:
             claimName: {{ include "common.fullname" . }}
       initContainers:
+        - name: wait-for-postgres
+          image: busybox
+          command: ['sh', '-c', 'until nc -z {{ .Values.postgresql.host | default (printf "%s-postgresql" .Release.Name) }} 5432; do echo waiting for postgres; sleep 2; done']
         - name: fix-permissions
           image: busybox
           command: ["sh", "-c", "chown -R 999:999 /botpress/data /botpress/log /botpress/pre-trained /botpress/stop-words"]
