@@ -40,6 +40,11 @@ ingress:
 
 postgres:
   fullnameOverride: botpress-postgres
+  settings:
+    superuser:
+      value: postgres
+    superuserPassword:
+      value: senha1234
   userDatabase:
     user: 
       value: botpress
