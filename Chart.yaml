@@ -2,8 +2,8 @@ apiVersion: v2
 name: botpress-custom
 description: Helm chart customizado para rodar o Botpress com PostgreSQL e Longhorn
 type: application
-version: 0.1.0
-appVersion: "1.0.0"
+version: 0.1.1
+appVersion: "1.0.1"
 dependencies:
   - name: postgres
     version: 1.5.7
