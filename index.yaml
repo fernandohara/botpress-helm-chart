@@ -2,19 +2,51 @@ apiVersion: v1
 entries:
   botpress-custom:
   - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-09-15T07:00:24.4623523-03:00"
+    dependencies:
+    - name: postgres
+      repository: https://groundhog2k.github.io/helm-charts
+      version: 1.5.7
+    description: Helm chart customizado para rodar o Botpress com PostgreSQL e Longhorn
+    digest: 082e6dd729e86cebb6637d97a06ff6a8e1e5ee44fd2c7f29bf5fa01ac637dedc
+    name: botpress-custom
+    type: application
+    urls:
+    - https://fernandohara.github.io/botpress-helm-chart/botpress-custom-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-07-13T22:48:38.2318149-03:00"
+    created: "2025-09-15T07:00:24.4580346-03:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
       version: 16.7.15
     description: Helm chart customizado para rodar o Botpress com PostgreSQL e Longhorn
-    digest: 591b1ef0651f9d04c48a9224d788c03f8679df119e5f9d3ac410e0c15c0b3c18
+    digest: 4a176f2b544c8a13471ab6e05c2f2af4279d56ec4ebdc9d6d87daefb03e72035
     name: botpress-custom
     type: application
     urls:
     - https://fernandohara.github.io/botpress-helm-chart/botpress-custom-0.1.0.tgz
     version: 0.1.0
+  postgres:
+  - apiVersion: v2
+    appVersion: "17.5"
+    created: "2025-09-15T07:00:24.4628956-03:00"
+    description: A Helm chart for PostgreSQL on Kubernetes
+    digest: b09779f7ad32e93c427fb9bbd01560051469009e088ad94e1b8b5d008404427b
+    icon: https://www.postgresql.org/media/img/about/press/elephant64.png
+    keywords:
+    - database
+    - postgres
+    maintainers:
+    - name: groundhog2k
+      url: https://github.com/groundhog2k/helm-charts
+    name: postgres
+    type: application
+    urls:
+    - https://fernandohara.github.io/botpress-helm-chart/charts/postgres-1.5.7.tgz
+    version: 1.5.7
   postgresql:
   - annotations:
       category: Database
@@ -58,4 +90,4 @@ entries:
     urls:
     - https://fernandohara.github.io/botpress-helm-chart/charts/postgresql-16.7.15.tgz
     version: 16.7.15
-generated: "2025-07-13T22:48:38.2268-03:00"
+generated: "2025-09-15T07:00:24.4519434-03:00"
