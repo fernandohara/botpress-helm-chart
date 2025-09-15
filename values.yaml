@@ -38,13 +38,15 @@ ingress:
       hosts:
         - botpress.seudominio.com.br
 
-postgresql:
-  auth:
-    username: botpress
-    password: senha1234
-    database: botpress
-  primary:
-    persistence:
-      enabled: true
-      size: 8Gi
-      storageClass: "longhorn"
+postgres:
+  fullnameOverride: botpress-postgres
+  userDatabase:
+    user: 
+      value: botpress
+    password:
+      value: senha1234
+    name: 
+      value: botpress
+  storage:
+    requestedSize: 8Gi
+    className: "longhorn"

@@ -21,7 +21,7 @@ spec:
       initContainers:
         - name: wait-for-postgres
           image: busybox
-          command: ['sh', '-c', 'until nc -z {{ .Values.postgresql.host | default (printf "%s-postgresql" .Release.Name) }} 5432; do echo waiting for postgres; sleep 2; done']
+          command: ['sh', '-c', 'until nc -z {{ .Values.postgres.fullnameOverride | default (printf "%s-postgres" .Release.Name) }} 5432; do echo waiting for postgres; sleep 2; done']
         - name: fix-permissions
           image: busybox
           command: ["sh", "-c", "chown -R 999:999 /botpress/data /botpress/log /botpress/pre-trained /botpress/stop-words"]
@@ -42,7 +42,7 @@ spec:
             - containerPort: {{ .Values.service.targetPort }}
           env:
             - name: DATABASE_URL
-              value: "postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ .Release.Name }}-postgresql/{{ .Values.postgresql.auth.database }}"
+              value: "postgres://{{ .Values.postgres.userDatabase.user.value }}:{{ .Values.postgres.userDatabase.password.value }}@{{ .Release.Name }}-postgresql/{{ .Values.postgres.userDatabase.name.value }}"
             {{- range $key, $value := .Values.env }}
             - name: {{ $key }}
               value: "{{ $value }}"
